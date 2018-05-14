@@ -3,10 +3,6 @@ const fs = require("mz/fs");
 
 async function getDiff(imgIni, imgFinal, resultado){
 
-    process.argv.forEach(function (val, index, array) {
-        console.log(index + ': ' + val);
-    });
-
     const options = {
         output: {
             errorColor: {
@@ -31,7 +27,7 @@ async function getDiff(imgIni, imgFinal, resultado){
             options
         );
 
-        console.log(data);
+        console.log(JSON.stringify(data));
 
         await fs.writeFile(resultado, data.getBuffer());
     }
