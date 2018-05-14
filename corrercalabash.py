@@ -38,7 +38,7 @@ def ejecutar_pruebas(dirapk):
     # endregion
 
     # region Ejecución de las prubas de calabash.
-    resultado = ejecutar_comando(["calabash-android", "run", "me.kuehle.carreport_69.apk"])
+    resultado = ejecutar_comando(["calabash-android", "run", nombre_apk])
     # endregion
 
     # region Guarda resultado en salida.
