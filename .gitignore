@@ -3,3 +3,4 @@ env/
 media/
 *.pyc
 /staticfiles/
+apks/
