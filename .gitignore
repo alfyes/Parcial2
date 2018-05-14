@@ -4,3 +4,10 @@ media/
 *.pyc
 /staticfiles/
 apks/
+datos_mutantes/
+datos_baseline/
+calabash/test_servers/
+calabash/*.apk
+process_images/
+oraculo/
+
