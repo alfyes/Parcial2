@@ -5,7 +5,8 @@ Feature: Recorrido de pantallas
     And I go back
     And I press "menu_save"
     And I wait for 2 seconds
-  Scenario: Crear tipo combustible
+
+  Scenario: Otros Ingresos
     Given I swipe left
     And I wait for 2 seconds
     And take screenshot with name "rcpt_sc1_menu"
@@ -27,3 +28,15 @@ Feature: Recorrido de pantallas
     And I see the text "Titulo 1"
     And I wait for 2 seconds
     And take screenshot with name "rcpt_sc1_listincome"
+
+  Scenario: Informacion sobre car report
+    Given I swipe left
+    And I wait for 2 seconds
+    And I touch the "Settings" text
+    And I wait for 2 seconds
+    And take screenshot with name "rcpt_sc2_settingsmenu"
+
+    Then I touch the "About Car Report" text
+    And I wait for 2 seconds
+    And take screenshot with name "rcpt_sc2_about"
+    And I see the text "LICENSES"
