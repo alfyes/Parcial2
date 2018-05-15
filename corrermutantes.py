@@ -8,12 +8,22 @@ from utilidades import mover_archivos
 
 def correr_mutantes():
     print "Inicia proceso de pruebas en mutantes"
-    for dirname in os.listdir("./apks"): # [:20]:
-        if dirname != "apk224":
-            continue
-        ejecutar_pruebas(".\\apks\\{0}\\signed-carreport.apk".format(dirname))
-        mover_archivos("./datos_mutantes/{0}/".format(dirname))
-        correr_vrt(".\\datos_mutantes\\{0}\\".format(dirname), dirname)
+
+    directorios = []
+    for dirname in os.listdir("./apks"):
+        if dirname.startswith('apk'):
+            directorios.append(dirname)
+
+    directorios.sort(key=dirnum)
+    for dirname in directorios:
+        if dirnum(dirname) > 330:
+            ejecutar_pruebas(".\\apks\\{0}\\signed-carreport.apk".format(dirname))
+            mover_archivos("./datos_mutantes/{0}/".format(dirname))
+            correr_vrt(".\\datos_mutantes\\{0}\\".format(dirname), dirname)
+
+
+def dirnum(nombre):
+    return int(nombre.replace('apk', ''))
 
 
 if __name__ == "__main__":
