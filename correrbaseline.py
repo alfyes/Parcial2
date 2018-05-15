@@ -5,7 +5,7 @@ from utilidades import mover_archivos
 
 def correr_baseline():
 
-    ejecutar_pruebas(".\\oraculo\\me.kuehle.carreport_69.apk")
+    ejecutar_pruebas("./oraculo/me.kuehle.carreport_69.apk")
     mover_archivos("./datos_baseline/")
 
 

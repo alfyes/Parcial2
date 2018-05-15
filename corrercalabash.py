@@ -10,10 +10,11 @@ from CmdAJAR import ejecutar_comando
 
 def ejecutar_pruebas(dirapk):
     # Ejecución de calabash
-    dirbase = "C:\\AJAR\\Pruebas Auto\\Parcial 2"
+    dirbase = "/Users/ingridjulietteardila/AJAR/Parcial2/"
     dircalabash = "calabash"
     nombre_salida = "salida.txt"
     nombre_apk = os.path.basename(dirapk)
+    ruta_imagenes = './process_images/'
 
     # region Se fija directorio de trabajo base general
     os.chdir(dirbase)
@@ -27,6 +28,12 @@ def ejecutar_pruebas(dirapk):
     # region Se copia el apk al directorio de trabajo.
     shutil.copyfile(dirapk, os.path.join(dircalabash, nombre_apk))
     # endregion
+
+    if os.path.exists(ruta_imagenes):
+        shutil.rmtree(ruta_imagenes)
+
+    if not os.path.exists(ruta_imagenes):
+        os.mkdir(ruta_imagenes)
 
     # region Se fija directorio de trabajo para calabash.
     os.chdir(os.path.join(dirbase, dircalabash))
@@ -60,4 +67,4 @@ def ejecutar_pruebas(dirapk):
 
 
 if __name__ == "__main__":
-    ejecutar_pruebas(".\\oraculo\\me.kuehle.carreport_69.apk")
+    ejecutar_pruebas("./oraculo/me.kuehle.carreport_69.apk")
