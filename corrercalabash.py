@@ -14,6 +14,7 @@ def ejecutar_pruebas(dirapk):
     dircalabash = "calabash"
     nombre_salida = "salida.txt"
     nombre_apk = os.path.basename(dirapk)
+    ruta_imagenes = './process_images/'
 
     # region Se fija directorio de trabajo base general
     os.chdir(dirbase)
@@ -26,6 +27,15 @@ def ejecutar_pruebas(dirapk):
 
     # region Se copia el apk al directorio de trabajo.
     shutil.copyfile(dirapk, os.path.join(dircalabash, nombre_apk))
+    # endregion
+
+    # region Se limpia directorio de salida
+    if os.path.exists(ruta_imagenes):
+        shutil.rmtree(ruta_imagenes)
+
+    if not os.path.exists(ruta_imagenes):
+        os.mkdir(ruta_imagenes)
+        # endregion
     # endregion
 
     # region Se fija directorio de trabajo para calabash.
